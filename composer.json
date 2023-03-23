@@ -1,0 +1,27 @@
+{
+    "name": "vkoori/pgp",
+    "description": "This package is used for communication between laravel/lumen services.",
+    "keywords": [
+        "JWT",
+        "pgp"
+    ],
+    "authors": [
+        {
+            "name": "Koorosh SafeAshrafi",
+            "email": "kooroshsafeashrafi@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "vkoori/jwt": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kooriv\\PGP\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

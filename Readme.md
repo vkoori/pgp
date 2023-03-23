@@ -33,3 +33,6 @@ If you are the recipient of the request and want to recognize the sender of the 
 ```
 \Kooriv\PGP\Receive::serviceName();
 ```
+
+> **Warning**
+> When sending a request, the `APP_NAME` value is sent in the payload. So make sure the `.env` file values are correct.

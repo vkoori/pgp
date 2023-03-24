@@ -10,7 +10,7 @@ class Send
 	{
 		return [
 			'Authorization' => (new JWT)->encode(
-				payload: ['SERVICE_NAME' => env('APP_NAME')]
+				payload: ['SERVICE_NAME' => strtoupper(env('APP_NAME'))]
 			)
 		];
 	}

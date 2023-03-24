@@ -14,6 +14,6 @@ class Receive
 			$payload = (new JWT)->decode(token: $jwt);
 		}
 		
-		return $payload['SERVICE_NAME'];
+		return strtoupper($payload['SERVICE_NAME']);
 	}
 }

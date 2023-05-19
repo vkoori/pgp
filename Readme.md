@@ -19,10 +19,10 @@ JWT_LEEWAY=0
 When you want to send a request to a service, set the received value in the request header according to the following code:
 
 ```
-\Kooriv\PGP\Send::header();
+\Kooriv\PGP\Send::header(payload:['key' => 'value']);
 ```
 
-If you are the recipient of the request, use the following class to middleware.
+If you are the recipient of the request, use the following middleware to validate the received request:
 
 ```
 \Kooriv\PGP\Middlewares\JWT::class
@@ -32,6 +32,13 @@ If you are the recipient of the request and want to recognize the sender of the 
 
 ```
 \Kooriv\PGP\Receive::serviceName();
+```
+
+If you are the recipient of the request and want to get all/specific payload, use the following code:
+
+```
+\Kooriv\PGP\Receive::payload();
+\Kooriv\PGP\Receive::payload('key');
 ```
 
 > **Warning**

@@ -1,19 +1,21 @@
-<?php 
+<?php
 
 namespace Kooriv\PGP;
 
-use Kooriv\JWT\JWT;
+use Kooriv\PGP\Middlewares\JWT as MiddlewaresJWT;
 
 class Receive
 {
+	public static function payload(?string $key = null)
+	{
+		MiddlewaresJWT::singletonPGP(request: request());
+		$payload = request()->attributes->get(key: 'PGP');
+
+		return $key ? $payload[$key] ?? null : $payload;
+	}
+
 	public static function serviceName(): string
 	{
-		$payload = request()->attributes->get(key: 'PGP');
-		if (is_null($payload)) {
-			$jwt = request()->header(key: 'Authorization', default: '');
-			$payload = (new JWT)->decode(token: $jwt);
-		}
-		
-		return strtoupper($payload['SERVICE_NAME']);
+		return strtoupper(self::payload('SERVICE_NAME'));
 	}
 }
